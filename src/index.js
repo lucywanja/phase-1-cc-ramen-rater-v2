@@ -40,10 +40,10 @@ const addSubmitListener = () => {
   const newRamenForm = document.getElementById('new-ramen');
 
 
-  newRamenForm.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+  newRamenForm.addEventListener('submit', (event) => {// attaches s submit eventlistener to the newramenform 
+    event.preventDefault(); // Prevent default form submission behavior, which can cause the page to refresh
 
-    // Extract form data
+    // Extract form data(values of the form inputs) each inpu value is store in a separate variable
     const nameInput = document.getElementById("new-name").value;
     const restaurantInput = document.getElementById("new-restaurant").value;
     const imageInput = document.getElementById("new-image").value;
@@ -56,7 +56,7 @@ const addSubmitListener = () => {
     console.log(ratingInput);
     console.log(commentInput);
 
-    // create a new Object
+    // create a new Object which has properties for each form field with their values
     const newRamens = {
       name: nameInput,
       restaurant: restaurantInput,
@@ -66,7 +66,7 @@ const addSubmitListener = () => {
     }
     console.log(newRamens);
 
-    const ramenObj = {
+    const ramenObj = {// the object ramenObj is constructed to define the parameters of the fetch request.
       method : 'POST',
       Headers : {
         'Content-Type' : 'application/json',
@@ -81,7 +81,7 @@ const addSubmitListener = () => {
       console.log(ramenObj);
     })
 
-    // clear form inputs
+    // clear form inputs after submition
     characterForm.reset();
 
    });
